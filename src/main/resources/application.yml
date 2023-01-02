@@ -1,0 +1,36 @@
+micronaut:
+  application:
+    name: corsLocalhostConf
+  security:
+    enabled: true
+    endpoints:
+      login:
+        enabled: true
+    authentication: bearer
+    token:
+      enabled: true
+      jwt:
+        generator:
+          access-token:
+            expiration: 3600
+          refresh-token:
+            secret: 'pleaseChangeThisSecretForANewOne'
+  server:
+    cors:
+      enabled: true
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+identity-store:
+  users:
+    admin: admin
+  roles:
+    admin: ADMIN
+
+logger:
+  levels:
+    ROOT: DEBUG
+    io.micronaut.context.condition: DEBUG
+    io.micronaut.security: DEBUG
